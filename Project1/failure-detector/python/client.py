@@ -5,7 +5,6 @@ import time
 import random
 
 def ping_node(target_node, sender_id, nodes_list, k=2):
-    """ 发送 ping，如果失败，则请求 k 个其他节点协助 """
     
     channel = grpc.insecure_channel(f"{target_node}:50051")
     stub = failure_detector_pb2_grpc.FailureDetectorStub(channel)
@@ -18,15 +17,15 @@ def ping_node(target_node, sender_id, nodes_list, k=2):
     except grpc.RpcError:
         print(f"Component FailureDetector of Node {sender_id} detected failure of {target_node}")
 
-    # **Step 3: 让 k 个其他节点进行二次 ping**
     other_nodes = [n for n in nodes_list if n != target_node and n != sender_id]
     if len(other_nodes) < k:
-        k = len(other_nodes)  # 避免 k 过大
+        k = len(other_nodes) 
     
     selected_helpers = random.sample(other_nodes, k)
     print(f" Node {sender_id} is requesting {selected_helpers} to ping {target_node}")
 
     successful_pings = 0
+    # Ask help from other nodes
     for helper in selected_helpers:
         try:
             channel = grpc.insecure_channel(f"{helper}:50051")
@@ -38,9 +37,9 @@ def ping_node(target_node, sender_id, nodes_list, k=2):
         except grpc.RpcError:
             print(f"Helper {helper} also failed to reach {target_node}")
 
-    # **Step 4: 只有当所有 k 个 helpers 都失败时，才确认 target_node 挂了**
+    # All Helper thought it is failed, it's failed.
     if successful_pings == 0:
         print(f"Node {sender_id} confirms that {target_node} is FAILED")
-        return False  # 确认 target_node 真的挂了
+        return False  
     
-    return True  # 目标 node 仍然存活
+    return True  
