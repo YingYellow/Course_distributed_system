@@ -1,0 +1,8 @@
+FROM python:3.9
+WORKDIR /app
+COPY protos/helloworld.proto /app/
+COPY python/client.py /app/
+COPY python/requirements.txt /app/
+RUN pip install -r requirements.txt
+RUN python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. helloworld.proto
+CMD ["python", "client.py"]

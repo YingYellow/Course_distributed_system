@@ -25,6 +25,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+
 /**
  * A simple client that requests a greeting from the {@link HelloWorldServer}.
  */
@@ -55,17 +57,6 @@ public class HelloWorldClient {
     }
     logger.info("Greeting: " + response.getMessage());
 
-    try {
-      // Call the new method on the server.
-      response = blockingStub.sayHelloAgain(request);
-    } catch (StatusRuntimeException e) {
-      // Log a warning if the RPC fails.
-      logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
-      return;
-    }
-
-    // Log the response from the new method.
-    logger.info("Greeting: " + response.getMessage());
   }
 
   /**
@@ -73,10 +64,8 @@ public class HelloWorldClient {
    * greeting. The second argument is the target server.
    */
   public static void main(String[] args) throws Exception {
-    String user = "world";
-    // Access a service running on the local machine on port 50051
-    String target = "127.0.0.1:50051";
-    // Allow passing in the user and target strings as command line arguments
+    String user = "java client";
+    String target = "java-server:50051";
     if (args.length > 0) {
       if ("--help".equals(args[0])) {
         System.err.println("Usage: [name [target]]");

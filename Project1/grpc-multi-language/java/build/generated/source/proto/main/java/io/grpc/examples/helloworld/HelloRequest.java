@@ -5,10 +5,6 @@
 package io.grpc.examples.helloworld;
 
 /**
- * <pre>
- * The request message containing the user's name.
- * </pre>
- *
  * Protobuf type {@code helloworld.HelloRequest}
  */
 public final class HelloRequest extends
@@ -33,13 +29,13 @@ private static final long serialVersionUID = 0L;
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloRequest_descriptor;
+    return io.grpc.examples.helloworld.Helloworld.internal_static_helloworld_HelloRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloRequest_fieldAccessorTable
+    return io.grpc.examples.helloworld.Helloworld.internal_static_helloworld_HelloRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             io.grpc.examples.helloworld.HelloRequest.class, io.grpc.examples.helloworld.HelloRequest.Builder.class);
   }
@@ -240,10 +236,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * The request message containing the user's name.
-   * </pre>
-   *
    * Protobuf type {@code helloworld.HelloRequest}
    */
   public static final class Builder extends
@@ -252,13 +244,13 @@ private static final long serialVersionUID = 0L;
       io.grpc.examples.helloworld.HelloRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloRequest_descriptor;
+      return io.grpc.examples.helloworld.Helloworld.internal_static_helloworld_HelloRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloRequest_fieldAccessorTable
+      return io.grpc.examples.helloworld.Helloworld.internal_static_helloworld_HelloRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.grpc.examples.helloworld.HelloRequest.class, io.grpc.examples.helloworld.HelloRequest.Builder.class);
     }
@@ -284,7 +276,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloRequest_descriptor;
+      return io.grpc.examples.helloworld.Helloworld.internal_static_helloworld_HelloRequest_descriptor;
     }
 
     @java.lang.Override

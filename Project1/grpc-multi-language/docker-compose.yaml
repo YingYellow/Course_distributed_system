@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  python-server:
+    build:
+      context: .
+      dockerfile: python/Dockerfile.server
+    container_name: python-server
+    ports:
+      - "50051:50051"
+
+  java-server:
+    build:
+      context: .
+      dockerfile: java/Dockerfile.server
+    container_name: java-server
+    ports:
+      - "50052:50051"
+
+  python-client:
+    build:
+      context: .
+      dockerfile: python/Dockerfile.client
+    container_name: python-client
+    depends_on:
+      - java-server
+
+  java-client:
+    build:
+      context: .
+      dockerfile: java/Dockerfile.client
+    container_name: java-client
+    depends_on:
+      - java-server

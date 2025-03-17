@@ -50,7 +50,7 @@ public class HelloWorldServer {
         .addService(new GreeterImpl())
         .build()
         .start();
-    logger.info("Server started, listening on " + port);
+    System.out.println("Server started, listening on " + port);
     Runtime.getRuntime().addShutdownHook(new Thread() {
       @Override
       public void run() {
@@ -99,20 +99,9 @@ public class HelloWorldServer {
 
     @Override
     public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
-      HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + req.getName()).build();
+      System.out.println("Received request from client: " + req.getName());
+      HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + req.getName() + "from Java Server.").build();
       responseObserver.onNext(reply);
-      responseObserver.onCompleted();
-    }
-
-    @Override
-    public void sayHelloAgain(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
-      // Generate another greeting message for the new method.
-      HelloReply reply = HelloReply.newBuilder().setMessage("Hello again " + req.getName()).build();
-
-      // Send the reply back to the client.
-      responseObserver.onNext(reply);
-
-      // Indicate that no further messages will be sent to the client.
       responseObserver.onCompleted();
     }
 

@@ -1,10 +1,11 @@
 import grpc
-from protos import helloworld_pb2
-from protos import helloworld_pb2_grpc
+import helloworld_pb2
+import helloworld_pb2_grpc
 from concurrent import futures
 
 class GreeterServicer(helloworld_pb2_grpc.GreeterServicer):
     def SayHello(self, request, context):
+        print(f"Received request from client: {request.name}")
         return helloworld_pb2.HelloReply(message=f"Hello, {request.name} from Python Server!")
 
 def serve():
