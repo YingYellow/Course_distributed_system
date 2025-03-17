@@ -1,0 +1,55 @@
+version: '3'
+services:
+  node-1:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    container_name: node-1
+    environment:
+      - NODE_ID=node-1
+    networks:
+      - swim-net
+
+  node-2:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    container_name: node-2
+    environment:
+      - NODE_ID=node-2
+    networks:
+      - swim-net
+
+  node-3:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    container_name: node-3
+    environment:
+      - NODE_ID=node-3
+    networks:
+      - swim-net
+
+  node-4:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    container_name: node-4
+    environment:
+      - NODE_ID=node-4
+    networks:
+      - swim-net
+
+  node-5:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    container_name: node-5
+    environment:
+      - NODE_ID=node-5
+    networks:
+      - swim-net
+
+networks:
+  swim-net:
+    driver: bridge
