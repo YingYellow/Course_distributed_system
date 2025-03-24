@@ -1,0 +1,10 @@
+FROM openjdk:11
+WORKDIR /app
+COPY java/ /app/
+COPY java/build.gradle /app/
+COPY java/settings.gradle /app/
+COPY java/gradlew /app/
+COPY java/gradle /app/gradle
+COPY protos /app/protos
+RUN chmod +x ./gradlew && ./gradlew installDist
+CMD ["java", "-cp", "build/install/dissemination/lib/*", "main.java.io.grpc.dissemination.Node"]

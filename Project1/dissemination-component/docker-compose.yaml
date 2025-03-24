@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  node1:
+    build: .
+    container_name: node-1
+    environment:
+      - NODE_ID=node-1
+      - PORT=50051
+    ports:
+      - "50051:50051"
+
+  node2:
+    build: .
+    container_name: node-2
+    environment:
+      - NODE_ID=node-2
+      - PORT=50052
+    ports:
+      - "50052:50052"
+
+  node3:
+    build: .
+    container_name: node-3
+    environment:
+      - NODE_ID=node-3
+      - PORT=50053
+    ports:
+      - "50053:50053"
+
+  node4:
+    build: .
+    container_name: node-4
+    environment:
+      - NODE_ID=node-4
+      - PORT=50054
+    ports:
+      - "50054:50054"
+
+  node5:
+    build: .
+    container_name: node-5
+    environment:
+      - NODE_ID=node-5
+      - PORT=50055
+    ports:
+      - "50055:50055"

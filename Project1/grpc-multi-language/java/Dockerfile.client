@@ -7,4 +7,4 @@ COPY java/gradlew /app/
 COPY java/gradle /app/gradle
 COPY protos /app/protos
 RUN chmod +x ./gradlew && ./gradlew installDist
-CMD ["java", "-cp", "build/install/examples/lib/*", "io.grpc.examples.helloworld.HelloWorldClient"]
+CMD ["java", "-cp", "build/install/dissemination/lib/*", "main.java.io.grpc.dissemination.DisseminationClient"]

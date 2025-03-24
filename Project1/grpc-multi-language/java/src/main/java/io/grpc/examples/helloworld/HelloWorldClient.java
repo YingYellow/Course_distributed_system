@@ -26,7 +26,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-
 /**
  * A simple client that requests a greeting from the {@link HelloWorldServer}.
  */
