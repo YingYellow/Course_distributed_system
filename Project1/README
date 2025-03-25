@@ -1,14 +1,17 @@
 1. grpc-multi-language
-
+There are two server-client pairs, one is java pair, the other is python pair.
+The function is simple, just greeting.
 
 2. failure-detector
-
+It is a python version of failure detector.
 
 3. dissemination-component
-
+It is a java version of dissemination component.
 
 
 4. swim
+It contains python-version failure detector and java-version dissemination component.
+
 Th test case is in the files: /swim/java/src/main/java/io/grpc/dissemination/TestDisseminationClient_1.java, /swim/java/src/main/java/io/grpc/dissemination/TestDisseminationClient_2.java, swim/python/test_3.py, swim/python/test_4.py, swim/python/test_5.py, 
 
 You can use command "docker-compose up --build" to execute it.
