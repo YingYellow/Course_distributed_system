@@ -1,0 +1,56 @@
+version: '3.8'
+services:
+  node1:
+    build: .
+    container_name: node-1
+    environment:
+      - NODE_ID=node-1
+      - JAVA_PORT=50051
+      - PYTHON_PORT=50056
+    ports:
+      - "50051:50051"
+      - "50056:50056"
+
+  node2:
+    build: .
+    container_name: node-2
+    environment:
+      - NODE_ID=node-2
+      - JAVA_PORT=50052
+      - PYTHON_PORT=50057
+    ports:
+      - "50052:50052"
+      - "50057:50057"
+
+  node3:
+    build: .
+    container_name: node-3
+    environment:
+      - NODE_ID=node-3
+      - JAVA_PORT=50053
+      - PYTHON_PORT=50058
+    ports:
+      - "50053:50053"
+      - "50058:50058"
+
+  node4:
+    build: .
+    container_name: node-4
+    environment:
+      - NODE_ID=node-4
+      - JAVA_PORT=50054
+      - PYTHON_PORT=50059
+    ports:
+      - "50054:50054"
+      - "50059:50059"
+
+  node5:
+    build: .
+    container_name: node-5
+    environment:
+      - NODE_ID=node-5
+      - JAVA_PORT=50055
+      - PYTHON_PORT=50060
+    ports:
+      - "50055:50055"
+      - "50060:50060"

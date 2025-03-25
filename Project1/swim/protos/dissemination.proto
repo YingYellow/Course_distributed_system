@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package dissemination;
+option java_package = "io.grpc.dissemination";
+option java_multiple_files = true;
+
+service Dissemination {
+  rpc ReportFailure (FailureReport) returns (AckResponse);
+  rpc JoinRequest (JoinRequestMessage) returns (MembershipList);
+}
+
+service FailureDetector {
+  rpc Ping (PingRequest) returns (AckResponse);
+}
+
+message PingRequest {
+  string sender_id = 1;
+}
+
+
+message FailureReport {
+  string sender_id = 1;
+  string failed_node = 2;
+}
+
+message JoinRequestMessage {
+  string new_node_id = 1;
+}
+
+message MembershipList {
+  repeated string nodes = 1;
+}
+
+message AckResponse {
+  bool success = 1;
+}
