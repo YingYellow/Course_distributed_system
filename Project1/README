@@ -7,4 +7,8 @@
 3. dissemination-component
 
 
+
 4. swim
+Th test case is in the files: /swim/java/src/main/java/io/grpc/dissemination/TestDisseminationClient_1.java, /swim/java/src/main/java/io/grpc/dissemination/TestDisseminationClient_2.java, swim/python/test_3.py, swim/python/test_4.py, swim/python/test_5.py, 
+
+You can use command "docker-compose up --build" to execute it.
