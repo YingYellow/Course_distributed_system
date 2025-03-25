@@ -1,12 +1,18 @@
 1. grpc-multi-language
 There are two server-client pairs, one is java pair, the other is python pair.
 The function is simple, just greeting.
+Command:
+1.1. docker-compose build 
+1.2. Recommend to use docker-compose up python-server, docker-compose up java-server, docker-compose up python-client,  docker-compose up java-client to make sure server starts before the client.
 
 2. failure-detector
 It is a python version of failure detector.
+You can use command "docker-compose up --build" to execute it.
+
 
 3. dissemination-component
 It is a java version of dissemination component.
+You can use command "docker-compose up --build" to execute it.
 
 
 4. swim
